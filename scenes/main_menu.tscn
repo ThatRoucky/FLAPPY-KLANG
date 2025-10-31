@@ -1,9 +1,66 @@
-[gd_scene load_steps=5 format=3 uid="uid://np4msjncksa2"]
+[gd_scene load_steps=13 format=3 uid="uid://np4msjncksa2"]
 
 [ext_resource type="Script" uid="uid://df47fj8wjai87" path="res://main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://d38ceuoo614k4" path="res://assets/bg.png" id="2_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://cum5khv3jtce1" path="res://assets/ground.png" id="3_wu84c"]
-[ext_resource type="Texture2D" uid="uid://cb3fw6j2c364v" path="res://assets/bird3.png" id="4_wu84c"]
+[ext_resource type="Texture2D" uid="uid://d1hbdbl0doaer" path="res://assets/Klang jump-Sheet.png" id="4_wu84c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ln24"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(0, 0, 50, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtw2f"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(0, 30, 50, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa1go"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(0, 60, 50, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbmy8"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(0, 90, 50, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk1qb"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(0, 120, 50, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dd4i"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(0, 150, 50, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgwnu"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(0, 180, 50, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_flqon"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ln24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtw2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa1go")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbmy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk1qb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dd4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgwnu")
+}],
+"loop": true,
+"name": &"KLANG",
+"speed": 5.0
+}]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,7 +68,7 @@ anchors_preset = 0
 script = ExtResource("1_l6cm7")
 
 [node name="Title" type="Label" parent="."]
-z_index = 1
+z_index = 2
 layout_mode = 0
 offset_left = 137.0
 offset_top = 114.0
@@ -42,10 +99,10 @@ theme_override_font_sizes/font_size = 40
 text = "-- OPTIONS --"
 
 [node name="Play" type="Button" parent="."]
-z_index = 1
+z_index = 2
 layout_mode = 0
 offset_left = 208.0
-offset_top = 346.0
+offset_top = 412.0
 offset_right = 651.0
 offset_bottom = 508.0
 theme_override_font_sizes/font_size = 50
@@ -59,9 +116,13 @@ texture = ExtResource("2_bqqt6")
 position = Vector2(501, 852)
 texture = ExtResource("3_wu84c")
 
-[node name="Bird3" type="Sprite2D" parent="."]
-position = Vector2(425, 441)
-scale = Vector2(9.558824, 13.305555)
-texture = ExtResource("4_wu84c")
+[node name="KLANG" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(425, 276)
+scale = Vector2(19.68, 19.866667)
+sprite_frames = SubResource("SpriteFrames_flqon")
+animation = &"KLANG"
+frame = 6
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="animation_finished" from="KLANG" to="." method="_on_klang_animation_finished"]

@@ -6,8 +6,8 @@ func _on_play_pressed():
 
 	
 func _on_options_pressed():
-	print("Options cliqué !")
-	# À compléter : afficher un menu d’options
+	get_tree().change_scene_to_file("res://scenes/option_menu.tscn")
+
 
 func _on_quit_pressed():
 	print("Quitter cliqué !")

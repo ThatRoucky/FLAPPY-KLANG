@@ -1,17 +1,67 @@
-[gd_scene format=3 uid="uid://dwm6tlu4fci4u"]
+[gd_scene load_steps=3 format=3 uid="uid://dwm6tlu4fci4u"]
+
+[ext_resource type="PackedScene" uid="uid://bxmlq8rx36xt1" path="res://scenes/high_on_the_beach.tscn" id="1_hecwe"]
+
+[sub_resource type="GDScript" id="GDScript_40sux"]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+
+
+
+func _on_volume_slider_value_changed(value: float) -> void:
+	$VolumeSlider/HighOnTheBeach.volume_db = value
+
+
+func _on_back_butt_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://scenes/main_menu.tscn\")
+"
 
 [node name="OptionMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_right = 0.60700005
+anchor_bottom = 0.40100002
+offset_left = 386.0
+offset_top = 278.0
+offset_right = -98.44806
+offset_bottom = -57.33603
+script = SubResource("GDScript_40sux")
 
-[node name="Button" type="Button" parent="."]
+[node name="VolumeSlider" type="HSlider" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -139.0
+offset_top = -54.0
+offset_right = 163.0
+offset_bottom = -19.0
 
-[node name="Button2" type="Button" parent="."]
+[node name="HighOnTheBeach" parent="VolumeSlider" instance=ExtResource("1_hecwe")]
+
+[node name="Volume" type="Label" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -132.0
+offset_top = -92.0
+offset_right = -70.0
+offset_bottom = -64.0
+theme_override_font_sizes/font_size = 20
+text = "Sound"
+
+[node name="OptionLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -47.0
+offset_top = -217.0
+offset_right = 67.0
+offset_bottom = -175.0
+theme_override_font_sizes/font_size = 30
+text = "Options"
+
+[node name="BackButt" type="Button" parent="."]
+layout_mode = 0
+offset_left = -55.0
+offset_top = 128.0
+offset_right = 88.0
+offset_bottom = 177.0
+text = "BACK"
+
+[connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="BackButt" to="." method="_on_back_butt_pressed"]
