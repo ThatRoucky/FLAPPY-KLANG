@@ -43,15 +43,14 @@ func new_game():
 
 #get the input events 
 func _input(event):
-	if game_over == false:
-		if event is InputEventMouseButton:
-			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-				if game_running == false:
-					start_game()
-				else:
-					if $Bird.flying:
-						$Bird.flap()
-						check_top()
+	if not game_over:
+		# Détecter l’action rebinding “flap”
+		if Input.is_action_just_pressed("flap"):
+			if not game_running:
+				start_game()
+			if game_running and $Bird.flying:
+				$Bird.flap()
+				check_top()
 
 #Start the game
 func start_game():

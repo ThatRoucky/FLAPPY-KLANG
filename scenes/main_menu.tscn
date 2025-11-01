@@ -109,7 +109,8 @@ theme_override_font_sizes/font_size = 50
 text = "(: PLAY :)"
 
 [node name="Bg" type="Sprite2D" parent="."]
-position = Vector2(428, 385)
+position = Vector2(315, 951.00006)
+scale = Vector2(9.990626, 10.591665)
 texture = ExtResource("2_bqqt6")
 
 [node name="Ground" type="Sprite2D" parent="."]
@@ -118,7 +119,7 @@ texture = ExtResource("3_wu84c")
 
 [node name="KLANG" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(425, 276)
+position = Vector2(429, 330)
 scale = Vector2(19.68, 19.866667)
 sprite_frames = SubResource("SpriteFrames_flqon")
 animation = &"KLANG"

@@ -1,5 +1,12 @@
 extends Control
 
+
+@onready var anim = $KLANG
+
+func _ready():
+	anim.play("KLANG")  # Nom de ton animation
+
+
 func _on_play_pressed():
 	# Change de scène vers ton jeu principal
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
