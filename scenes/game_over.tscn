@@ -14,26 +14,30 @@ texture = ExtResource("2_e5ng7")
 
 [node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_36epf")
+metadata/_edit_horizontal_guides_ = [77.0, 96.0]
+metadata/_edit_vertical_guides_ = [160.0]
 
 [node name="Restart" type="Button" parent="."]
 z_index = 1
 anchors_preset = -1
 anchor_right = 0.023000002
 anchor_bottom = 0.028
-offset_left = 342.0
-offset_top = 350.0
-offset_right = 482.128
-offset_bottom = 386.792
+offset_left = 149.0
+offset_top = 72.0
+offset_right = 289.128
+offset_bottom = 108.792
+scale = Vector2(0.15, 0.15)
 theme_override_styles/normal = SubResource("StyleBoxTexture_xeevv")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_wqhvx")
 theme_override_styles/hover = SubResource("StyleBoxTexture_tbwuq")
 
 [node name="MainMenu" type="Button" parent="."]
 z_index = 1
-offset_left = 344.0
-offset_top = 449.0
-offset_right = 504.0
-offset_bottom = 512.0
+offset_left = 136.0
+offset_top = 98.0
+offset_right = 184.0
+offset_bottom = 115.0
+theme_override_font_sizes/font_size = 6
 text = "Main Menu"
 
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

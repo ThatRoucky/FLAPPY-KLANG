@@ -11,12 +11,12 @@ var game_over : bool
 var scroll 
 var score : int
 var high_score : int
-const SCROLL_SPEED : int = 4
+const SCROLL_SPEED : int = 1
 var screen_size : Vector2i
 var ground_height : int
 var pipes : Array
-const PIPE_DELAY : int = 100
-const PIPE_RANGE : int = 200
+const PIPE_DELAY : int = 20
+const PIPE_RANGE : int = 80
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

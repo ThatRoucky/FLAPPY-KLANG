@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhjnra1ci8xid"
-path="res://.godot/imported/Klang_jump_1.png-08ef00e21e1281179fa9377db13c1863.ctex"
+uid="uid://b2mhjut2ii0k4"
+path="res://.godot/imported/Light_Wave.png-bc2196447e2c0cd22683dbe91922f190.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Klang_jump_1.png"
-dest_files=["res://.godot/imported/Klang_jump_1.png-08ef00e21e1281179fa9377db13c1863.ctex"]
+source_file="res://assets/Light_Wave.png"
+dest_files=["res://.godot/imported/Light_Wave.png-bc2196447e2c0cd22683dbe91922f190.ctex"]
 
 [params]
 

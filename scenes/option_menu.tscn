@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwm6tlu4fci4u"]
+[gd_scene load_steps=17 format=3 uid="uid://dwm6tlu4fci4u"]
 
-[ext_resource type="Texture2D" uid="uid://d38ceuoo614k4" path="res://assets/bg.png" id="1_hecwe"]
+[ext_resource type="Texture2D" uid="uid://bcbou25j341cd" path="res://assets/FIX Sunset.png" id="1_x6sq6"]
+[ext_resource type="Texture2D" uid="uid://deb512lqm5br4" path="res://assets/Sun.png" id="2_laan2"]
+[ext_resource type="Texture2D" uid="uid://ckgw1aiwauufa" path="res://assets/Dark_Wave.png" id="3_6uflr"]
+[ext_resource type="Texture2D" uid="uid://oiiyhqgj6hux" path="res://assets/Mid_Wave.png" id="4_e7w18"]
+[ext_resource type="Texture2D" uid="uid://b2mhjut2ii0k4" path="res://assets/Light_Wave.png" id="5_14fn0"]
+[ext_resource type="PackedScene" uid="uid://d2ort7tfi33lg" path="res://scenes/ground.tscn" id="6_u23oc"]
+[ext_resource type="Texture2D" uid="uid://d1hbdbl0doaer" path="res://assets/Klang jump-Sheet.png" id="7_laan2"]
 
 [sub_resource type="GDScript" id="GDScript_40sux"]
 script/source = "extends Control
 
-# Liste des actions à rebinder
-
+@onready var anim = $KLANG
 
 # Pour savoir quelle action attend un rebinding
 var waiting_for_input: String = \"\"
@@ -21,6 +26,8 @@ func _on_back_butt_pressed() -> void:
 
 func _ready():
 	$ButtonChange.connect(\"pressed\", Callable(self, \"_on_change_pressed\"))
+	anim.play(\"KLANG\")  # Nom de ton animation
+
 
 func _on_button_change_pressed() -> void:
 	waiting_for_input = \"flap\"  # Nom de l’action à rebinder
@@ -46,6 +53,63 @@ func _unhandled_input(event):
 			waiting_for_input = \"\"
 "
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ln24"]
+atlas = ExtResource("7_laan2")
+region = Rect2(0, 0, 50, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtw2f"]
+atlas = ExtResource("7_laan2")
+region = Rect2(0, 30, 50, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa1go"]
+atlas = ExtResource("7_laan2")
+region = Rect2(0, 60, 50, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbmy8"]
+atlas = ExtResource("7_laan2")
+region = Rect2(0, 90, 50, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk1qb"]
+atlas = ExtResource("7_laan2")
+region = Rect2(0, 120, 50, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dd4i"]
+atlas = ExtResource("7_laan2")
+region = Rect2(0, 150, 50, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgwnu"]
+atlas = ExtResource("7_laan2")
+region = Rect2(0, 180, 50, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6uflr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ln24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtw2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa1go")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbmy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk1qb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dd4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgwnu")
+}],
+"loop": true,
+"name": &"KLANG",
+"speed": 5.0
+}]
+
 [node name="OptionMenu" type="Control"]
 layout_mode = 3
 anchor_right = 0.60700005
@@ -56,52 +120,73 @@ offset_right = -98.44806
 offset_bottom = -57.33603
 script = SubResource("GDScript_40sux")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(107, 190)
-scale = Vector2(5.1134605, 5.1608357)
-texture = ExtResource("1_hecwe")
+[node name="FixSunset" type="Sprite2D" parent="."]
+position = Vector2(-226, -188)
+texture = ExtResource("1_x6sq6")
+
+[node name="Sun" type="Sprite2D" parent="."]
+position = Vector2(-211, -214)
+texture = ExtResource("2_laan2")
+
+[node name="DarkWave" type="Sprite2D" parent="."]
+position = Vector2(94, -203)
+texture = ExtResource("3_6uflr")
+
+[node name="MidWave" type="Sprite2D" parent="."]
+position = Vector2(94, -188)
+texture = ExtResource("4_e7w18")
+
+[node name="LightWave" type="Sprite2D" parent="."]
+position = Vector2(94, -172)
+texture = ExtResource("5_14fn0")
+
+[node name="Ground" parent="." instance=ExtResource("6_u23oc")]
+position = Vector2(-386, -299)
 
 [node name="VolumeSlider" type="HSlider" parent="."]
+texture_filter = 1
 layout_mode = 0
-offset_left = -131.0
-offset_top = 332.0
-offset_right = 171.0
-offset_bottom = 367.0
+offset_left = -307.0
+offset_top = -176.0
+offset_right = -218.0
+offset_bottom = -160.0
 min_value = -30.0
 max_value = 0.0
 
 [node name="Volume" type="Label" parent="."]
 layout_mode = 0
-offset_left = -111.0
-offset_top = 292.0
-offset_right = -49.0
-offset_bottom = 320.0
-theme_override_font_sizes/font_size = 20
+offset_left = -304.0
+offset_top = -189.0
+offset_right = -278.0
+offset_bottom = -178.0
+theme_override_font_sizes/font_size = 7
 text = "Sound"
 
 [node name="OptionLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = -192.0
-offset_top = -199.0
-offset_right = 266.0
-offset_bottom = -34.0
-theme_override_font_sizes/font_size = 120
+offset_left = -248.0
+offset_top = -254.0
+offset_right = -209.0
+offset_bottom = -240.0
+theme_override_font_sizes/font_size = 10
 text = "Options"
 
 [node name="BackButt" type="Button" parent="."]
 layout_mode = 0
-offset_left = -58.0
-offset_top = 457.0
-offset_right = 85.0
-offset_bottom = 506.0
+offset_left = -305.0
+offset_top = -148.0
+offset_right = -269.0
+offset_bottom = -126.0
+theme_override_font_sizes/font_size = 6
 text = "BACK"
 
 [node name="ButtonChange" type="Button" parent="."]
 layout_mode = 0
-offset_left = -134.0
-offset_top = 228.0
-offset_right = -22.0
-offset_bottom = 279.0
+offset_left = -306.0
+offset_top = -209.0
+offset_right = -264.0
+offset_bottom = -192.0
+theme_override_font_sizes/font_size = 6
 text = "Change"
 
 [node name="LabelDisplay" type="Label" parent="."]
@@ -109,19 +194,27 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.5
 anchor_bottom = 0.287
-offset_left = 23.0
-offset_top = 230.0
-offset_right = 339.0
-offset_bottom = 257.52
+offset_left = -254.0
+offset_top = -205.0
+offset_right = -195.0
+offset_bottom = -197.0
+theme_override_font_sizes/font_size = 5
 
 [node name="ControlLbl" type="Label" parent="."]
 layout_mode = 0
-offset_left = -124.0
-offset_top = 172.0
-offset_right = 12.0
-offset_bottom = 209.0
-theme_override_font_sizes/font_size = 20
+offset_left = -305.0
+offset_top = -223.0
+offset_right = -226.0
+offset_bottom = -212.0
+theme_override_font_sizes/font_size = 7
 text = "Change control to FLAP"
+
+[node name="KLANG" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(-150, -229)
+scale = Vector2(0.991, 1)
+sprite_frames = SubResource("SpriteFrames_6uflr")
+animation = &"KLANG"
 
 [connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="pressed" from="BackButt" to="." method="_on_back_butt_pressed"]

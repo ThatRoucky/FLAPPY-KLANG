@@ -1,21 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2ort7tfi33lg"]
 
 [ext_resource type="Script" uid="uid://bt6wb6bhnysrq" path="res://ground.gd" id="1_mi8v4"]
-[ext_resource type="Texture2D" uid="uid://cum5khv3jtce1" path="res://assets/ground.png" id="2_lmksl"]
+[ext_resource type="Texture2D" uid="uid://bchvh0i25udsv" path="res://assets/Groung.png" id="2_mi8v4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5yvf"]
-size = Vector2(1727, 164.5)
+size = Vector2(960, 100)
 
 [node name="Ground" type="Area2D"]
 script = ExtResource("1_mi8v4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 852)
-texture = ExtResource("2_lmksl")
+position = Vector2(-384, 192)
+texture = ExtResource("2_mi8v4")
 offset = Vector2(864, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(863.5, 853.75)
+position = Vector2(480, 188)
 shape = SubResource("RectangleShape2D_w5yvf")
 debug_color = Color(0.30524918, 0.49490958, 1, 0.41960785)
 

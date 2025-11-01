@@ -1,9 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://np4msjncksa2"]
+[gd_scene load_steps=17 format=3 uid="uid://np4msjncksa2"]
 
 [ext_resource type="Script" uid="uid://df47fj8wjai87" path="res://main_menu.gd" id="1_l6cm7"]
-[ext_resource type="Texture2D" uid="uid://d38ceuoo614k4" path="res://assets/bg.png" id="2_bqqt6"]
-[ext_resource type="Texture2D" uid="uid://cum5khv3jtce1" path="res://assets/ground.png" id="3_wu84c"]
+[ext_resource type="Texture2D" uid="uid://bcbou25j341cd" path="res://assets/FIX Sunset.png" id="3_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://deb512lqm5br4" path="res://assets/Sun.png" id="4_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://d1hbdbl0doaer" path="res://assets/Klang jump-Sheet.png" id="4_wu84c"]
+[ext_resource type="Texture2D" uid="uid://ckgw1aiwauufa" path="res://assets/Dark_Wave.png" id="5_5dd4i"]
+[ext_resource type="Texture2D" uid="uid://oiiyhqgj6hux" path="res://assets/Mid_Wave.png" id="6_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://b2mhjut2ii0k4" path="res://assets/Light_Wave.png" id="7_flqon"]
+[ext_resource type="PackedScene" uid="uid://d2ort7tfi33lg" path="res://scenes/ground.tscn" id="8_rcqid"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ln24"]
 atlas = ExtResource("4_wu84c")
@@ -67,65 +71,80 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_l6cm7")
 
+[node name="KLANG" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(150, 67)
+scale = Vector2(0.991, 1)
+sprite_frames = SubResource("SpriteFrames_flqon")
+animation = &"KLANG"
+frame = 6
+
+[node name="FixSunset" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("3_tbmy8")
+
+[node name="Sun" type="Sprite2D" parent="."]
+position = Vector2(175, 64)
+texture = ExtResource("4_jk1qb")
+
+[node name="DarkWave2" type="Sprite2D" parent="."]
+position = Vector2(480, 75)
+texture = ExtResource("5_5dd4i")
+
+[node name="MidWave2" type="Sprite2D" parent="."]
+position = Vector2(480, 90)
+texture = ExtResource("6_lgwnu")
+
+[node name="LightWave2" type="Sprite2D" parent="."]
+position = Vector2(480, 106)
+texture = ExtResource("7_flqon")
+
+[node name="Ground" parent="." instance=ExtResource("8_rcqid")]
+z_index = 1
+position = Vector2(0, -21)
+
 [node name="Title" type="Label" parent="."]
 z_index = 2
 layout_mode = 0
-offset_left = 137.0
-offset_top = 114.0
-offset_right = 711.0
-offset_bottom = 235.0
-theme_override_font_sizes/font_size = 80
+offset_left = 112.0
+offset_top = 38.0
+offset_right = 184.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 10
 text = "FLAPPY KLANG"
 horizontal_alignment = 1
 
 [node name="Quit" type="Button" parent="."]
 z_index = 1
 layout_mode = 0
-offset_left = 210.0
-offset_top = 647.0
-offset_right = 653.0
-offset_bottom = 698.0
-theme_override_font_sizes/font_size = 25
+offset_left = 108.0
+offset_top = 148.0
+offset_right = 187.0
+offset_bottom = 165.0
+theme_override_font_sizes/font_size = 6
 text = "): QUIT :("
 
 [node name="Option" type="Button" parent="."]
 z_index = 1
 layout_mode = 0
-offset_left = 210.0
-offset_top = 533.0
-offset_right = 653.0
-offset_bottom = 611.0
-theme_override_font_sizes/font_size = 40
+offset_left = 109.0
+offset_top = 122.0
+offset_right = 187.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 8
 text = "-- OPTIONS --"
 
 [node name="Play" type="Button" parent="."]
 z_index = 2
 layout_mode = 0
-offset_left = 208.0
-offset_top = 412.0
-offset_right = 651.0
-offset_bottom = 508.0
-theme_override_font_sizes/font_size = 50
+offset_left = 109.0
+offset_top = 94.0
+offset_right = 187.0
+offset_bottom = 115.0
+theme_override_font_sizes/font_size = 9
 text = "(: PLAY :)"
 
-[node name="Bg" type="Sprite2D" parent="."]
-position = Vector2(315, 951.00006)
-scale = Vector2(9.990626, 10.591665)
-texture = ExtResource("2_bqqt6")
-
-[node name="Ground" type="Sprite2D" parent="."]
-position = Vector2(501, 852)
-texture = ExtResource("3_wu84c")
-
-[node name="KLANG" type="AnimatedSprite2D" parent="."]
-z_index = 1
-position = Vector2(429, 330)
-scale = Vector2(19.68, 19.866667)
-sprite_frames = SubResource("SpriteFrames_flqon")
-animation = &"KLANG"
-frame = 6
-
+[connection signal="animation_finished" from="KLANG" to="." method="_on_klang_animation_finished"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Option" to="." method="_on_option_pressed"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
-[connection signal="animation_finished" from="KLANG" to="." method="_on_klang_animation_finished"]

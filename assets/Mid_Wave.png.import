@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://533ubvnyvpxe"
-path="res://.godot/imported/bird2.png-a9c593802cedb50a9374c8dc66a9b92d.ctex"
+uid="uid://oiiyhqgj6hux"
+path="res://.godot/imported/Mid_Wave.png-8067f8b2e47f9082954a206ffec9f767.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bird2.png"
-dest_files=["res://.godot/imported/bird2.png-a9c593802cedb50a9374c8dc66a9b92d.ctex"]
+source_file="res://assets/Mid_Wave.png"
+dest_files=["res://.godot/imported/Mid_Wave.png-8067f8b2e47f9082954a206ffec9f767.ctex"]
 
 [params]
 

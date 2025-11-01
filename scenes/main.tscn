@@ -1,27 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://blj5g47uwo7m0"]
+[gd_scene load_steps=12 format=3 uid="uid://blj5g47uwo7m0"]
 
-[ext_resource type="Texture2D" uid="uid://d38ceuoo614k4" path="res://assets/bg.png" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://b5ub4vbaxkiin" path="res://scenes/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cr3pl7yfk32tb" path="res://scenes/pipe.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b6xt1pam4caki" path="res://scenes/bird.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://d2ort7tfi33lg" path="res://scenes/ground.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bh2ov1qga4v0o" path="res://scenes/game_over.tscn" id="6_tefeu"]
+[ext_resource type="Texture2D" uid="uid://bcbou25j341cd" path="res://assets/FIX Sunset.png" id="7_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://deb512lqm5br4" path="res://assets/Sun.png" id="8_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://np4msjncksa2" path="res://scenes/main_menu.tscn" id="9_85g3d"]
+[ext_resource type="Texture2D" uid="uid://ckgw1aiwauufa" path="res://assets/Dark_Wave.png" id="9_trceg"]
+[ext_resource type="Texture2D" uid="uid://oiiyhqgj6hux" path="res://assets/Mid_Wave.png" id="10_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://b2mhjut2ii0k4" path="res://assets/Light_Wave.png" id="11_jkv2x"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_sugp2")
 pipe_scene = ExtResource("2_tbgi4")
 
-[node name="Sky" type="Sprite2D" parent="."]
-position = Vector2(-3890.0002, -3111)
-scale = Vector2(9.970157, 10.562778)
-texture = ExtResource("1_o5qli")
-offset = Vector2(432, 384)
-
 [node name="Bird" parent="." instance=ExtResource("3_jyhfs")]
-
-[node name="Ground" parent="." instance=ExtResource("4_jyhfs")]
 z_index = 1
+position = Vector2(1, 0)
 
 [node name="PipeTimer" type="Timer" parent="."]
 wait_time = 1.5
@@ -31,11 +28,11 @@ z_index = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -100.5
-offset_right = 100.5
-offset_bottom = 44.0
+offset_left = -11.5
+offset_right = 11.5
+offset_bottom = 8.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 5
 text = "SCORE : 0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -47,23 +44,39 @@ z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -287.0
-offset_top = 7.0
-offset_right = -19.0
-offset_bottom = 62.0
+offset_left = -31.0
+offset_bottom = 5.0
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 3
 text = "HIGH SCORE:"
 horizontal_alignment = 2
 
 [node name="MainMenu" parent="." instance=ExtResource("9_85g3d")]
 
-[node name="sea1" type="Sprite2D" parent="."]
+[node name="FixSunset" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("7_ya4ey")
 
-[node name="sea2" type="Sprite2D" parent="."]
+[node name="Sun" type="Sprite2D" parent="."]
+position = Vector2(175, 64)
+texture = ExtResource("8_eb6dy")
 
-[node name="sea3" type="Sprite2D" parent="."]
+[node name="DarkWave" type="Sprite2D" parent="."]
+position = Vector2(480, 75)
+texture = ExtResource("9_trceg")
 
-[connection signal="hit" from="Ground" to="." method="_on_ground_hit"]
+[node name="MidWave" type="Sprite2D" parent="."]
+position = Vector2(480, 90)
+texture = ExtResource("10_a8y0u")
+
+[node name="LightWave" type="Sprite2D" parent="."]
+position = Vector2(480, 106)
+texture = ExtResource("11_jkv2x")
+
+[node name="Ground" parent="." instance=ExtResource("4_jyhfs")]
+z_index = 1
+position = Vector2(0, -21)
+
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
 [connection signal="restart" from="GameOver" to="." method="_on_game_over_restart"]
+[connection signal="hit" from="Ground" to="." method="_on_ground_hit"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2kif6rkl5yyk"
-path="res://.godot/imported/Klang_jump_0.png-e367445cdd9523463c9affa6b3b6919c.ctex"
+uid="uid://bchvh0i25udsv"
+path="res://.godot/imported/Groung.png-2e959109a956cf53a097e1f3192ffea8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Klang_jump_0.png"
-dest_files=["res://.godot/imported/Klang_jump_0.png-e367445cdd9523463c9affa6b3b6919c.ctex"]
+source_file="res://assets/Groung.png"
+dest_files=["res://.godot/imported/Groung.png-2e959109a956cf53a097e1f3192ffea8.ctex"]
 
 [params]
 

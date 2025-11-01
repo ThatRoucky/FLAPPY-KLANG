@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4nhc0xfr6xta"
-path="res://.godot/imported/Klang_jump_3.png-5d0d3732bffce3d3d13dc5476bdb9d61.ctex"
+uid="uid://bcbou25j341cd"
+path="res://.godot/imported/FIX Sunset.png-ee10161bf3d2743b7378ec31bf173956.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Klang_jump_3.png"
-dest_files=["res://.godot/imported/Klang_jump_3.png-5d0d3732bffce3d3d13dc5476bdb9d61.ctex"]
+source_file="res://assets/FIX Sunset.png"
+dest_files=["res://.godot/imported/FIX Sunset.png-ee10161bf3d2743b7378ec31bf173956.ctex"]
 
 [params]
 
