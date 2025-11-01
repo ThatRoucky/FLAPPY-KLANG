@@ -12,7 +12,7 @@
 script = ExtResource("1_sugp2")
 pipe_scene = ExtResource("2_tbgi4")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Sky" type="Sprite2D" parent="."]
 position = Vector2(-3890.0002, -3111)
 scale = Vector2(9.970157, 10.562778)
 texture = ExtResource("1_o5qli")
@@ -57,6 +57,12 @@ text = "HIGH SCORE:"
 horizontal_alignment = 2
 
 [node name="MainMenu" parent="." instance=ExtResource("9_85g3d")]
+
+[node name="sea1" type="Sprite2D" parent="."]
+
+[node name="sea2" type="Sprite2D" parent="."]
+
+[node name="sea3" type="Sprite2D" parent="."]
 
 [connection signal="hit" from="Ground" to="." method="_on_ground_hit"]
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
