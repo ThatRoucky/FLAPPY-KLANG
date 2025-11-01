@@ -1,17 +1,128 @@
-[gd_scene format=3 uid="uid://dwm6tlu4fci4u"]
+[gd_scene load_steps=3 format=3 uid="uid://dwm6tlu4fci4u"]
+
+[ext_resource type="Texture2D" uid="uid://d38ceuoo614k4" path="res://assets/bg.png" id="1_hecwe"]
+
+[sub_resource type="GDScript" id="GDScript_40sux"]
+script/source = "extends Control
+
+# Liste des actions à rebinder
+
+
+# Pour savoir quelle action attend un rebinding
+var waiting_for_input: String = \"\"
+
+func _on_volume_slider_value_changed(value: float) -> void:
+	Music.volume_db = value
+
+
+func _on_back_butt_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://scenes/main_menu.tscn\")
+
+
+func _ready():
+	$ButtonChange.connect(\"pressed\", Callable(self, \"_on_change_pressed\"))
+
+func _on_button_change_pressed() -> void:
+	waiting_for_input = \"flap\"  # Nom de l’action à rebinder
+	$LabelDisplay.text = \"Appuyez sur une touche\"
+	$ButtonChange.release_focus()
+	print(\"Appuyez sur une touche pour flap\")
+
+func _unhandled_input(event):
+	if waiting_for_input != \"\":
+		if event is InputEventKey and event.pressed:
+			var new_event = InputEventKey.new()
+			new_event.keycode = event.keycode
+
+			# Supprime les anciennes touches
+			InputMap.action_erase_events(waiting_for_input)
+			# Ajoute la nouvelle touche
+			InputMap.action_add_event(waiting_for_input, new_event)
+			#Traduit l'input choisi en texte compréhensible pour un humain 
+			var key_name = OS.get_keycode_string(new_event.keycode)
+			$LabelDisplay.text = str(key_name)
+			print(\"Nouvelle touche pour\", waiting_for_input, \":\", str(key_name))
+			
+			waiting_for_input = \"\"
+"
 
 [node name="OptionMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_right = 0.60700005
+anchor_bottom = 0.40100002
+offset_left = 386.0
+offset_top = 278.0
+offset_right = -98.44806
+offset_bottom = -57.33603
+script = SubResource("GDScript_40sux")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(107, 190)
+scale = Vector2(5.1134605, 5.1608357)
+texture = ExtResource("1_hecwe")
 
-[node name="Button2" type="Button" parent="."]
+[node name="VolumeSlider" type="HSlider" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -131.0
+offset_top = 332.0
+offset_right = 171.0
+offset_bottom = 367.0
+min_value = -30.0
+max_value = 0.0
+
+[node name="Volume" type="Label" parent="."]
+layout_mode = 0
+offset_left = -111.0
+offset_top = 292.0
+offset_right = -49.0
+offset_bottom = 320.0
+theme_override_font_sizes/font_size = 20
+text = "Sound"
+
+[node name="OptionLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -192.0
+offset_top = -199.0
+offset_right = 266.0
+offset_bottom = -34.0
+theme_override_font_sizes/font_size = 120
+text = "Options"
+
+[node name="BackButt" type="Button" parent="."]
+layout_mode = 0
+offset_left = -58.0
+offset_top = 457.0
+offset_right = 85.0
+offset_bottom = 506.0
+text = "BACK"
+
+[node name="ButtonChange" type="Button" parent="."]
+layout_mode = 0
+offset_left = -134.0
+offset_top = 228.0
+offset_right = -22.0
+offset_bottom = 279.0
+text = "Change"
+
+[node name="LabelDisplay" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.287
+offset_left = 23.0
+offset_top = 230.0
+offset_right = 339.0
+offset_bottom = 257.52
+
+[node name="ControlLbl" type="Label" parent="."]
+layout_mode = 0
+offset_left = -124.0
+offset_top = 172.0
+offset_right = 12.0
+offset_bottom = 209.0
+theme_override_font_sizes/font_size = 20
+text = "Change control to FLAP"
+
+[connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="BackButt" to="." method="_on_back_butt_pressed"]
+[connection signal="pressed" from="ButtonChange" to="." method="_on_button_change_pressed"]

@@ -24,6 +24,14 @@ func _ready():
 	ground_height = $Ground.get_node("Sprite2D").texture.get_height()
 	$MainMenu.show()
 	new_game()
+	# Load saved high score if exists
+	if FileAccess.file_exists("user://highscore.save"):
+		var file = FileAccess.open("user://highscore.save", FileAccess.READ)
+		high_score = file.get_32()
+		file.close()
+	else:
+		high_score = 0
+	$HighScore.text = "HIGH SCORE : " + str(high_score)
 	
 #reset variables and the Bird's variable
 func new_game():
@@ -43,15 +51,14 @@ func new_game():
 
 #get the input events 
 func _input(event):
-	if game_over == false:
-		if event is InputEventMouseButton:
-			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-				if game_running == false:
-					start_game()
-				else:
-					if $Bird.flying:
-						$Bird.flap()
-						check_top()
+	if not game_over:
+		# Détecter l’action rebinding “flap”
+		if Input.is_action_just_pressed("flap"):
+			if not game_running:
+				start_game()
+			if game_running and $Bird.flying:
+				$Bird.flap()
+				check_top()
 
 #Start the game
 func start_game():
@@ -93,6 +100,7 @@ func scored():
 	if score > high_score:
 		high_score = score
 		$HighScore.text = "HIGH SCORE : " + str(high_score)
+		save_high_score()
 
 
 func  check_top():
@@ -105,7 +113,6 @@ func stop_game():
 	#Show high score
 	if score > high_score:
 		high_score = score
-		$HighScore.text = "HIGH SCORE : " + str(high_score)
 	#show the menu 
 	$GameOver.show()
 	$Bird.flying =false
@@ -125,3 +132,8 @@ func _on_ground_hit():
 
 func _on_game_over_restart():
 	new_game()
+
+func save_high_score():
+	var file = FileAccess.open("user://highscore.save", FileAccess.WRITE)
+	file.store_32(high_score)
+	file.close()
