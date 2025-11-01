@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxmlq8rx36xt1"]
-
-[ext_resource type="Script" path="res://high_on_the_beach.gd" id="1_atwgt"]
-
-[node name="HighOnTheBeach" type="AudioStreamPlayer2D"]
-script = ExtResource("1_atwgt")

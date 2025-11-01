@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-HighOnTheBeach="*res://high_on_the_beach.gd"
+Music="*res://scenes/MusicPlayer.gd"
 
 [display]
 

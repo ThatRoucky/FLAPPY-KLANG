@@ -124,5 +124,7 @@ sprite_frames = SubResource("SpriteFrames_flqon")
 animation = &"KLANG"
 frame = 6
 
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Option" to="." method="_on_option_pressed"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="animation_finished" from="KLANG" to="." method="_on_klang_animation_finished"]

@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwm6tlu4fci4u"]
-
-[ext_resource type="PackedScene" uid="uid://bxmlq8rx36xt1" path="res://scenes/high_on_the_beach.tscn" id="1_hecwe"]
+[gd_scene load_steps=2 format=3 uid="uid://dwm6tlu4fci4u"]
 
 [sub_resource type="GDScript" id="GDScript_40sux"]
 script/source = "extends Control
@@ -11,7 +9,7 @@ script/source = "extends Control
 
 
 func _on_volume_slider_value_changed(value: float) -> void:
-	$VolumeSlider/HighOnTheBeach.volume_db = value
+	Music.volume_db = value
 
 
 func _on_back_butt_pressed() -> void:
@@ -34,8 +32,8 @@ offset_left = -139.0
 offset_top = -54.0
 offset_right = 163.0
 offset_bottom = -19.0
-
-[node name="HighOnTheBeach" parent="VolumeSlider" instance=ExtResource("1_hecwe")]
+min_value = -30.0
+max_value = 0.0
 
 [node name="Volume" type="Label" parent="."]
 layout_mode = 0
