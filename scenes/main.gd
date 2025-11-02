@@ -83,10 +83,7 @@ func _physics_process(delta):
 		if scroll >= screen_size.x:
 			scroll = 0
 		#move ground Node
-		$Ground.position.x = -scroll
-		$DarkWave.position.x = -(scroll/4)
-		$MidWave.position.x = -(scroll/3)
-		$LightWave.position.x = -(scroll/2)
+		
 		#move pipes
 		for pipe in pipes:
 			pipe.position.x -= SCROLL_SPEED
