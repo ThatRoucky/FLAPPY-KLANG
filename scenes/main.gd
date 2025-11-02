@@ -82,7 +82,7 @@ func _physics_process(delta):
 		#reset scroll 
 		if scroll >= screen_size.x:
 			scroll = 0
-		#move ground Node
+
 		
 		#move pipes
 		for pipe in pipes:

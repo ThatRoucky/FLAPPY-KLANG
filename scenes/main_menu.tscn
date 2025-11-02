@@ -66,10 +66,11 @@ animations = [{
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_l6cm7")
+metadata/_edit_vertical_guides_ = [160.0]
 
 [node name="KLANG" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(150, 67)
+position = Vector2(161, 59)
 scale = Vector2(0.991, 1)
 sprite_frames = SubResource("SpriteFrames_flqon")
 animation = &"KLANG"
@@ -78,10 +79,10 @@ frame = 6
 [node name="Title" type="Label" parent="."]
 z_index = 2
 layout_mode = 0
-offset_left = 112.0
-offset_top = 38.0
-offset_right = 184.0
-offset_bottom = 52.0
+offset_left = 123.0
+offset_top = 30.0
+offset_right = 195.0
+offset_bottom = 44.0
 theme_override_font_sizes/font_size = 10
 text = "FLAPPY KLANG"
 horizontal_alignment = 1
@@ -89,30 +90,30 @@ horizontal_alignment = 1
 [node name="Quit" type="Button" parent="."]
 z_index = 1
 layout_mode = 0
-offset_left = 108.0
-offset_top = 148.0
-offset_right = 187.0
-offset_bottom = 165.0
+offset_left = 120.0
+offset_top = 140.0
+offset_right = 199.0
+offset_bottom = 157.0
 theme_override_font_sizes/font_size = 6
 text = "): QUIT :("
 
 [node name="Option" type="Button" parent="."]
 z_index = 1
 layout_mode = 0
-offset_left = 109.0
-offset_top = 122.0
-offset_right = 187.0
-offset_bottom = 142.0
+offset_left = 121.0
+offset_top = 114.0
+offset_right = 199.0
+offset_bottom = 134.0
 theme_override_font_sizes/font_size = 8
 text = "-- OPTIONS --"
 
 [node name="Play" type="Button" parent="."]
 z_index = 2
 layout_mode = 0
-offset_left = 109.0
-offset_top = 94.0
-offset_right = 187.0
-offset_bottom = 115.0
+offset_left = 121.0
+offset_top = 86.0
+offset_right = 199.0
+offset_bottom = 107.0
 theme_override_font_sizes/font_size = 9
 text = "(: PLAY :)"
 
