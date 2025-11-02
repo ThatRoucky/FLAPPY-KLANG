@@ -171,15 +171,6 @@ offset_bottom = -240.0
 theme_override_font_sizes/font_size = 10
 text = "Options"
 
-[node name="BackButt" type="Button" parent="."]
-layout_mode = 0
-offset_left = -305.0
-offset_top = -148.0
-offset_right = -269.0
-offset_bottom = -126.0
-theme_override_font_sizes/font_size = 6
-text = "BACK"
-
 [node name="ButtonChange" type="Button" parent="."]
 layout_mode = 0
 offset_left = -306.0
@@ -216,6 +207,16 @@ scale = Vector2(0.991, 1)
 sprite_frames = SubResource("SpriteFrames_6uflr")
 animation = &"KLANG"
 
+[node name="BackButt" type="Button" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = -305.0
+offset_top = -148.0
+offset_right = -269.0
+offset_bottom = -126.0
+theme_override_font_sizes/font_size = 6
+text = "BACK"
+
 [connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_slider_value_changed"]
-[connection signal="pressed" from="BackButt" to="." method="_on_back_butt_pressed"]
 [connection signal="pressed" from="ButtonChange" to="." method="_on_button_change_pressed"]
+[connection signal="pressed" from="BackButt" to="." method="_on_back_butt_pressed"]
