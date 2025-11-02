@@ -16,44 +16,46 @@ size = Vector2(12, 5)
 size = Vector2(10.25, 79)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arpqm"]
-size = Vector2(5.5, 28.5)
+size = Vector2(4, 72)
 
 [node name="Pipe" type="Area2D" groups=["pipes"]]
 script = ExtResource("1_arpqm")
+metadata/_edit_vertical_guides_ = [199.0, 187.0]
+metadata/_edit_horizontal_guides_ = [77.0, 104.0]
 
 [node name="Lower" type="Sprite2D" parent="." groups=["pipes"]]
-position = Vector2(192.85, 89.00001)
+position = Vector2(192.85, 73)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_8p0di")
 offset = Vector2(0, 380)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["pipes"]]
-position = Vector2(192.9375, 74.37501)
+position = Vector2(192.7875, 9.375015)
 shape = SubResource("RectangleShape2D_ejsh2")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." groups=["pipes"]]
-position = Vector2(193.25, 32.500008)
+position = Vector2(193.1, -32.499985)
 shape = SubResource("RectangleShape2D_4ybk5")
 
 [node name="Upper" type="Sprite2D" parent="." groups=["pipes"]]
-position = Vector2(193, 92.00001)
+position = Vector2(192.85, 27.000008)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_8p0di")
 offset = Vector2(0, -380)
 flip_v = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="." groups=["pipes"]]
-position = Vector2(192.85, 106.50001)
+position = Vector2(192.85, 90.5)
 shape = SubResource("RectangleShape2D_tdldm")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="." groups=["pipes"]]
-position = Vector2(192.85, 148)
+position = Vector2(192.85, 132)
 shape = SubResource("RectangleShape2D_ss4sx")
 
 [node name="ScoreArea" type="Area2D" parent="." groups=["pipes"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea" groups=["pipes"]]
-position = Vector2(204, 91.00001)
+position = Vector2(204, 50)
 shape = SubResource("RectangleShape2D_arpqm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

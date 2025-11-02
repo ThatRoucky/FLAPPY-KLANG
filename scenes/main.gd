@@ -2,25 +2,32 @@
 #ZACHARIE LE ZIGOUIGOUI
 #31.10.2025
 
-extends Node
+extends Node2D
 
 @export var pipe_scene : PackedScene
+
+
+
+
+const BASE_PIPE_RANGE = 200
+
+var SCROLL_SPEED = 1.8
+var PIPE_DELAY = 20
+var PIPE_RANGE = 20
 
 var game_running : bool
 var game_over : bool
 var scroll 
 var score : int
 var high_score : int
-const SCROLL_SPEED : int = 1
 var screen_size : Vector2i
 var ground_height : int
 var pipes : Array
-const PIPE_DELAY : int = 20
-const PIPE_RANGE : int = 80
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	screen_size = get_window().size
+	screen_size = get_viewport_rect().size
 	ground_height = $Ground.get_node("Sprite2D").texture.get_height()
 	$MainMenu.show()
 	new_game()
@@ -77,6 +84,9 @@ func _physics_process(delta):
 			scroll = 0
 		#move ground Node
 		$Ground.position.x = -scroll
+		$DarkWave.position.x = -(scroll/4)
+		$MidWave.position.x = -(scroll/3)
+		$LightWave.position.x = -(scroll/2)
 		#move pipes
 		for pipe in pipes:
 			pipe.position.x -= SCROLL_SPEED
