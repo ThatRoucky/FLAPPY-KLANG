@@ -15,9 +15,10 @@ metadata/_edit_vertical_guides_ = [160.0]
 
 [node name="Bird" parent="." instance=ExtResource("3_jyhfs")]
 z_index = 1
-position = Vector2(1, 0)
+position = Vector2(44, 17)
 
 [node name="PipeTimer" type="Timer" parent="."]
+wait_time = 1.0999999999999999
 
 [node name="ScoreLabel" type="Label" parent="."]
 z_index = 1
@@ -55,7 +56,6 @@ position = Vector2(160, 90)
 texture = ExtResource("6_o6xl0")
 
 [node name="Ground" parent="." instance=ExtResource("4_jyhfs")]
-position = Vector2(0, -21)
 
 [node name="MainMenu" parent="." instance=ExtResource("9_85g3d")]
 

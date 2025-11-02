@@ -1,53 +1,55 @@
 [gd_scene load_steps=6 format=3 uid="uid://cr3pl7yfk32tb"]
 
 [ext_resource type="Script" uid="uid://b6oliycfva6se" path="res://pipe.gd" id="1_arpqm"]
-[ext_resource type="Texture2D" uid="uid://qgwyuh024arw" path="res://assets/Palmier.png" id="2_arpqm"]
+[ext_resource type="Texture2D" uid="uid://de7f66vlt6nu" path="res://assets/Mini-Palmier.png" id="2_arpqm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8p0di"]
-radius = 26.0
+radius = 14.142136
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejsh2"]
-size = Vector2(9, 79)
+size = Vector2(7, 79)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arpqm"]
-size = Vector2(4, 72)
+size = Vector2(8, 52)
 
-[node name="Palmtrees" type="Area2D" groups=["pipes"]]
+[node name="Pipe" type="Area2D" groups=["pipes"]]
+position = Vector2(153, 64)
 script = ExtResource("1_arpqm")
 metadata/_edit_vertical_guides_ = [199.0, 187.0]
-metadata/_edit_horizontal_guides_ = [77.0, 104.0]
+metadata/_edit_horizontal_guides_ = [66.0, 120.0]
 
 [node name="Lowerpalmtree" type="Sprite2D" parent="."]
-position = Vector2(167, 164)
+position = Vector2(14, 64)
 texture = ExtResource("2_arpqm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(164, 134)
+position = Vector2(-2, 45)
 shape = SubResource("CircleShape2D_8p0di")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(164.5, 199.5)
+position = Vector2(-2, 98)
 shape = SubResource("RectangleShape2D_ejsh2")
 
 [node name="ScoreArea" type="Area2D" parent="." groups=["pipes"]]
+position = Vector2(33, -48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea" groups=["pipes"]]
-position = Vector2(191, 84)
+position = Vector2(-21, 49)
 shape = SubResource("RectangleShape2D_arpqm")
 
 [node name="Upperpalmtree" type="Sprite2D" parent="."]
-position = Vector2(167, 0)
+position = Vector2(-16.999992, -56)
 rotation = 3.1415927
 texture = ExtResource("2_arpqm")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(169, 28)
+position = Vector2(-0.9999924, -38)
 rotation = 3.1415927
 shape = SubResource("CircleShape2D_8p0di")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-position = Vector2(170, -37)
-rotation = 3.1415927
+position = Vector2(-0.49999237, -91)
+rotation = -3.1415925
 shape = SubResource("RectangleShape2D_ejsh2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

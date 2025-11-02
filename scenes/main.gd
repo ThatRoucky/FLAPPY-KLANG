@@ -13,7 +13,7 @@ const BASE_PIPE_RANGE = 200
 
 var SCROLL_SPEED = 1.8
 var PIPE_DELAY = 20
-var PIPE_RANGE = 20
+var PIPE_RANGE = 22
 
 var game_running : bool
 var game_over : bool
