@@ -1,9 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://np4msjncksa2"]
+[gd_scene load_steps=22 format=3 uid="uid://np4msjncksa2"]
 
 [ext_resource type="Script" uid="uid://df47fj8wjai87" path="res://main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://b6t0eilr6c5sj" path="res://assets/Sunset.png" id="3_wu84c"]
+[ext_resource type="Shader" uid="uid://cx8tqcbjyjxpr" path="res://Shaders/DarkWave.tres" id="4_5dd4i"]
 [ext_resource type="Texture2D" uid="uid://nwuv23xk7prm" path="res://assets/Beach.png" id="4_8ln24"]
 [ext_resource type="Texture2D" uid="uid://d1hbdbl0doaer" path="res://assets/Klang jump-Sheet.png" id="4_wu84c"]
+[ext_resource type="Texture2D" uid="uid://ckgw1aiwauufa" path="res://assets/Dark_Wave.png" id="5_lgwnu"]
+[ext_resource type="Shader" uid="uid://0a3e2qr8vil4" path="res://Shaders/MidWave.tres" id="6_flqon"]
+[ext_resource type="Texture2D" uid="uid://oiiyhqgj6hux" path="res://assets/Mid_Wave.png" id="7_rcqid"]
+[ext_resource type="Shader" uid="uid://dp88ny2cmekvt" path="res://Shaders/LightWave.tres" id="8_1ajci"]
+[ext_resource type="Texture2D" uid="uid://b2mhjut2ii0k4" path="res://assets/Light_Wave.png" id="9_7b55j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ln24"]
 atlas = ExtResource("4_wu84c")
@@ -61,6 +67,15 @@ animations = [{
 "name": &"KLANG",
 "speed": 5.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5pajh"]
+shader = ExtResource("4_5dd4i")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7ex8"]
+shader = ExtResource("6_flqon")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a8gd2"]
+shader = ExtResource("8_1ajci")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -120,6 +135,22 @@ text = "(: PLAY :)"
 [node name="Sunset" type="Sprite2D" parent="."]
 position = Vector2(160, 90)
 texture = ExtResource("3_wu84c")
+
+[node name="DarkWave" type="Sprite2D" parent="Sunset"]
+visibility_layer = 2
+material = SubResource("ShaderMaterial_5pajh")
+position = Vector2(0, 5)
+texture = ExtResource("5_lgwnu")
+
+[node name="MidWave" type="Sprite2D" parent="Sunset"]
+material = SubResource("ShaderMaterial_j7ex8")
+position = Vector2(0, 33)
+texture = ExtResource("7_rcqid")
+
+[node name="LightWave" type="Sprite2D" parent="Sunset"]
+material = SubResource("ShaderMaterial_a8gd2")
+position = Vector2(0, 61)
+texture = ExtResource("9_7b55j")
 
 [node name="Beach" type="Sprite2D" parent="."]
 position = Vector2(160, 165)
