@@ -5,7 +5,7 @@ const MAX_VEL : int = 300
 const FLAP_SPEED : int = -175
 var flying : bool = false
 var falling : bool = false
-const START_POS = Vector2(18, 56)
+const START_POS = Vector2(18, 0)
 
 #called when the node enters the scene for the fist time 
 func _ready():

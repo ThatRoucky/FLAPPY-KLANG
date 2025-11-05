@@ -82,8 +82,6 @@ func _physics_process(delta):
 		#reset scroll 
 		if scroll >= screen_size.x:
 			scroll = 0
-
-		
 		#move pipes
 		for pipe in pipes:
 			pipe.position.x -= SCROLL_SPEED

@@ -68,11 +68,11 @@ height = 20.0
 script = ExtResource("1_twsrt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(48, -4)
+position = Vector2(24, -4)
 sprite_frames = SubResource("SpriteFrames_hrcfq")
 animation = &"flying"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(39, 0)
+position = Vector2(15, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_3po83")
