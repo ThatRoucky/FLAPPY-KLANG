@@ -1,12 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://blj5g47uwo7m0"]
+[gd_scene load_steps=17 format=3 uid="uid://blj5g47uwo7m0"]
 
 [ext_resource type="Script" uid="uid://b5ub4vbaxkiin" path="res://scenes/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cr3pl7yfk32tb" path="res://scenes/pipe.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b6xt1pam4caki" path="res://scenes/bird.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://d2ort7tfi33lg" path="res://scenes/ground.tscn" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://ckgw1aiwauufa" path="res://assets/Dark_Wave.png" id="6_choun"]
 [ext_resource type="Texture2D" uid="uid://b6t0eilr6c5sj" path="res://assets/Sunset.png" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bh2ov1qga4v0o" path="res://scenes/game_over.tscn" id="6_tefeu"]
+[ext_resource type="Shader" uid="uid://cx8tqcbjyjxpr" path="res://Shaders/DarkWave.tres" id="6_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://oiiyhqgj6hux" path="res://assets/Mid_Wave.png" id="7_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://b2mhjut2ii0k4" path="res://assets/Light_Wave.png" id="8_eb6dy"]
+[ext_resource type="Shader" uid="uid://0a3e2qr8vil4" path="res://Shaders/MidWave.tres" id="8_trceg"]
 [ext_resource type="PackedScene" uid="uid://np4msjncksa2" path="res://scenes/main_menu.tscn" id="9_85g3d"]
+[ext_resource type="Shader" uid="uid://dp88ny2cmekvt" path="res://Shaders/LightWave.tres" id="10_trceg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eb6dy"]
+shader = ExtResource("6_ya4ey")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a8y0u"]
+shader = ExtResource("8_trceg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jkv2x"]
+shader = ExtResource("10_trceg")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_sugp2")
@@ -18,7 +33,7 @@ z_index = 1
 position = Vector2(44, 17)
 
 [node name="PipeTimer" type="Timer" parent="."]
-wait_time = 1.0999999999999999
+wait_time = 1.1
 
 [node name="ScoreLabel" type="Label" parent="."]
 z_index = 1
@@ -55,9 +70,26 @@ horizontal_alignment = 2
 position = Vector2(160, 90)
 texture = ExtResource("6_o6xl0")
 
+[node name="DarkWave" type="Sprite2D" parent="Sunset"]
+visibility_layer = 2
+material = SubResource("ShaderMaterial_eb6dy")
+position = Vector2(0, 5)
+texture = ExtResource("6_choun")
+
+[node name="MidWave" type="Sprite2D" parent="Sunset"]
+material = SubResource("ShaderMaterial_a8y0u")
+position = Vector2(0, 33)
+texture = ExtResource("7_ya4ey")
+
+[node name="LightWave" type="Sprite2D" parent="Sunset"]
+material = SubResource("ShaderMaterial_jkv2x")
+position = Vector2(0, 61)
+texture = ExtResource("8_eb6dy")
+
 [node name="Ground" parent="." instance=ExtResource("4_jyhfs")]
 
 [node name="MainMenu" parent="." instance=ExtResource("9_85g3d")]
+visible = false
 
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
 [connection signal="restart" from="GameOver" to="." method="_on_game_over_restart"]
