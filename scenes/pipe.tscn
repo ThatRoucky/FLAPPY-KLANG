@@ -10,7 +10,7 @@ radius = 14.142136
 size = Vector2(7, 79)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arpqm"]
-size = Vector2(8, 58)
+size = Vector2(8, 52)
 
 [node name="Pipe" type="Area2D" groups=["pipes"]]
 position = Vector2(153, 64)
@@ -19,22 +19,22 @@ metadata/_edit_vertical_guides_ = [199.0, 187.0]
 metadata/_edit_horizontal_guides_ = [66.0, 120.0]
 
 [node name="Lowerpalmtree" type="Sprite2D" parent="."]
-position = Vector2(14, 64)
+position = Vector2(13, 57)
 texture = ExtResource("2_arpqm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 45)
+position = Vector2(-3, 38)
 shape = SubResource("CircleShape2D_8p0di")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 98)
+position = Vector2(-3, 91)
 shape = SubResource("RectangleShape2D_ejsh2")
 
 [node name="ScoreArea" type="Area2D" parent="." groups=["pipes"]]
 position = Vector2(33, -48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea" groups=["pipes"]]
-position = Vector2(-21, 52)
+position = Vector2(-21, 49)
 shape = SubResource("RectangleShape2D_arpqm")
 
 [node name="Upperpalmtree" type="Sprite2D" parent="."]

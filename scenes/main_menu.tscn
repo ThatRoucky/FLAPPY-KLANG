@@ -1,15 +1,19 @@
-[gd_scene load_steps=22 format=3 uid="uid://np4msjncksa2"]
+[gd_scene load_steps=35 format=3 uid="uid://np4msjncksa2"]
 
 [ext_resource type="Script" uid="uid://df47fj8wjai87" path="res://main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://duucc4tw2h7p4" path="res://assets/Menu/QUIT.png" id="3_lgwnu"]
 [ext_resource type="Texture2D" uid="uid://b6t0eilr6c5sj" path="res://assets/Sunset.png" id="3_wu84c"]
+[ext_resource type="Texture2D" uid="uid://b1iou5gal8lhl" path="res://assets/Menu/OPTIONS.png" id="4_1ajci"]
 [ext_resource type="Shader" uid="uid://cx8tqcbjyjxpr" path="res://Shaders/DarkWave.tres" id="4_5dd4i"]
 [ext_resource type="Texture2D" uid="uid://nwuv23xk7prm" path="res://assets/Beach.png" id="4_8ln24"]
 [ext_resource type="Texture2D" uid="uid://d1hbdbl0doaer" path="res://assets/Klang jump-Sheet.png" id="4_wu84c"]
+[ext_resource type="Texture2D" uid="uid://ba5y5k512w4k3" path="res://assets/Menu/PLAY.png" id="5_7b55j"]
 [ext_resource type="Texture2D" uid="uid://ckgw1aiwauufa" path="res://assets/Dark_Wave.png" id="5_lgwnu"]
 [ext_resource type="Shader" uid="uid://0a3e2qr8vil4" path="res://Shaders/MidWave.tres" id="6_flqon"]
 [ext_resource type="Texture2D" uid="uid://oiiyhqgj6hux" path="res://assets/Mid_Wave.png" id="7_rcqid"]
 [ext_resource type="Shader" uid="uid://dp88ny2cmekvt" path="res://Shaders/LightWave.tres" id="8_1ajci"]
 [ext_resource type="Texture2D" uid="uid://b2mhjut2ii0k4" path="res://assets/Light_Wave.png" id="9_7b55j"]
+[ext_resource type="Texture2D" uid="uid://dhllmhosyvsas" path="res://assets/Menu/TITLE.png" id="14_5pajh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ln24"]
 atlas = ExtResource("4_wu84c")
@@ -68,6 +72,33 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_flqon"]
+texture = ExtResource("3_lgwnu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lgwnu"]
+texture = ExtResource("3_lgwnu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rcqid"]
+texture = ExtResource("3_lgwnu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j7ex8"]
+texture = ExtResource("4_1ajci")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a8gd2"]
+texture = ExtResource("4_1ajci")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hstxw"]
+texture = ExtResource("4_1ajci")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8egab"]
+texture = ExtResource("5_7b55j")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gw5y6"]
+texture = ExtResource("5_7b55j")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_svtp6"]
+texture = ExtResource("5_7b55j")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5pajh"]
 shader = ExtResource("4_5dd4i")
 
@@ -81,56 +112,51 @@ shader = ExtResource("8_1ajci")
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_l6cm7")
-metadata/_edit_vertical_guides_ = [160.0]
+metadata/_edit_vertical_guides_ = [160.0, 130.0, 190.0]
+metadata/_edit_horizontal_guides_ = [75.0]
 
 [node name="KLANG" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(161, 59)
-scale = Vector2(0.991, 1)
+position = Vector2(160, 95)
 sprite_frames = SubResource("SpriteFrames_flqon")
 animation = &"KLANG"
 frame = 6
 
-[node name="Title" type="Label" parent="."]
-z_index = 2
-layout_mode = 0
-offset_left = 123.0
-offset_top = 30.0
-offset_right = 195.0
-offset_bottom = 44.0
-theme_override_font_sizes/font_size = 10
-text = "FLAPPY KLANG"
-horizontal_alignment = 1
-
 [node name="Quit" type="Button" parent="."]
 z_index = 1
 layout_mode = 0
-offset_left = 120.0
-offset_top = 140.0
-offset_right = 199.0
-offset_bottom = 157.0
+offset_left = 115.0
+offset_top = 119.0
+offset_right = 205.0
+offset_bottom = 149.0
 theme_override_font_sizes/font_size = 6
-text = "): QUIT :("
+theme_override_styles/normal = SubResource("StyleBoxTexture_flqon")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lgwnu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rcqid")
 
 [node name="Option" type="Button" parent="."]
 z_index = 1
 layout_mode = 0
-offset_left = 121.0
-offset_top = 114.0
-offset_right = 199.0
-offset_bottom = 134.0
+offset_left = 190.0
+offset_top = 75.0
+offset_right = 280.0
+offset_bottom = 105.0
 theme_override_font_sizes/font_size = 8
-text = "-- OPTIONS --"
+theme_override_styles/normal = SubResource("StyleBoxTexture_j7ex8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_a8gd2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hstxw")
 
 [node name="Play" type="Button" parent="."]
 z_index = 2
 layout_mode = 0
-offset_left = 121.0
-offset_top = 86.0
-offset_right = 199.0
-offset_bottom = 107.0
+offset_left = 38.0
+offset_top = 75.0
+offset_right = 129.0
+offset_bottom = 106.0
 theme_override_font_sizes/font_size = 9
-text = "(: PLAY :)"
+theme_override_styles/normal = SubResource("StyleBoxTexture_8egab")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gw5y6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_svtp6")
 
 [node name="Sunset" type="Sprite2D" parent="."]
 position = Vector2(160, 90)
@@ -155,6 +181,10 @@ texture = ExtResource("9_7b55j")
 [node name="Beach" type="Sprite2D" parent="."]
 position = Vector2(160, 165)
 texture = ExtResource("4_8ln24")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(160, 36)
+texture = ExtResource("14_5pajh")
 
 [connection signal="animation_finished" from="KLANG" to="." method="_on_klang_animation_finished"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
