@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dwm6tlu4fci4u"]
+[gd_scene load_steps=23 format=3 uid="uid://dwm6tlu4fci4u"]
 
 [ext_resource type="Texture2D" uid="uid://bcbou25j341cd" path="res://assets/FIX Sunset.png" id="1_x6sq6"]
 [ext_resource type="Texture2D" uid="uid://deb512lqm5br4" path="res://assets/Sun.png" id="2_laan2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d2ort7tfi33lg" path="res://scenes/ground.tscn" id="6_u23oc"]
 [ext_resource type="Texture2D" uid="uid://dd0vysslwhd3c" path="res://assets/Menu/CONTROL.png" id="7_e7w18"]
 [ext_resource type="Texture2D" uid="uid://d1hbdbl0doaer" path="res://assets/Klang jump-Sheet.png" id="7_laan2"]
+[ext_resource type="FontFile" uid="uid://xh6pd2r48spv" path="res://arcadepix/ARCADEPI.TTF" id="8_14fn0"]
 [ext_resource type="Texture2D" uid="uid://b1iou5gal8lhl" path="res://assets/Menu/OPTIONS.png" id="9_14fn0"]
 
 [sub_resource type="GDScript" id="GDScript_40sux"]
@@ -195,6 +196,7 @@ offset_left = -344.0
 offset_top = -165.0
 offset_right = -253.0
 offset_bottom = -157.0
+theme_override_fonts/font = ExtResource("8_14fn0")
 theme_override_font_sizes/font_size = 5
 
 [node name="ControlLbl" type="Label" parent="."]

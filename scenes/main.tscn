@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://blj5g47uwo7m0"]
+[gd_scene load_steps=18 format=3 uid="uid://blj5g47uwo7m0"]
 
 [ext_resource type="Script" uid="uid://b5ub4vbaxkiin" path="res://scenes/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cr3pl7yfk32tb" path="res://scenes/pipe.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b6xt1pam4caki" path="res://scenes/bird.tscn" id="3_jyhfs"]
+[ext_resource type="FontFile" uid="uid://xh6pd2r48spv" path="res://arcadepix/ARCADEPI.TTF" id="4_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://d2ort7tfi33lg" path="res://scenes/ground.tscn" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://ckgw1aiwauufa" path="res://assets/Dark_Wave.png" id="6_choun"]
 [ext_resource type="Texture2D" uid="uid://b6t0eilr6c5sj" path="res://assets/Sunset.png" id="6_o6xl0"]
@@ -45,6 +46,7 @@ offset_top = 3.0
 offset_right = 170.0
 offset_bottom = 11.0
 grow_horizontal = 0
+theme_override_fonts/font = ExtResource("4_a8y0u")
 theme_override_font_sizes/font_size = 5
 text = "SCORE : 0"
 horizontal_alignment = 1
@@ -62,6 +64,7 @@ offset_top = 3.0
 offset_right = 317.0
 offset_bottom = 8.0
 grow_horizontal = 0
+theme_override_fonts/font = ExtResource("4_a8y0u")
 theme_override_font_sizes/font_size = 3
 text = "HIGH SCORE:"
 horizontal_alignment = 2
