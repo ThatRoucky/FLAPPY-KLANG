@@ -13,7 +13,7 @@ const BASE_PIPE_RANGE = 200
 
 var SCROLL_SPEED = 1.8
 var PIPE_DELAY = 20
-var PIPE_RANGE = 20
+var PIPE_RANGE = 22
 
 var game_running : bool
 var game_over : bool
@@ -82,11 +82,6 @@ func _physics_process(delta):
 		#reset scroll 
 		if scroll >= screen_size.x:
 			scroll = 0
-		#move ground Node
-		$Ground.position.x = -scroll
-		$DarkWave.position.x = -(scroll/4)
-		$MidWave.position.x = -(scroll/3)
-		$LightWave.position.x = -(scroll/2)
 		#move pipes
 		for pipe in pipes:
 			pipe.position.x -= SCROLL_SPEED

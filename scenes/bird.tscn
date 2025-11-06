@@ -1,42 +1,39 @@
 [gd_scene load_steps=12 format=3 uid="uid://b6xt1pam4caki"]
 
 [ext_resource type="Script" uid="uid://dvn1c8kkjk578" path="res://scenes/bird.gd" id="1_twsrt"]
-[ext_resource type="Texture2D" uid="uid://d1hbdbl0doaer" path="res://assets/Klang jump-Sheet.png" id="2_3po83"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3po83"]
-atlas = ExtResource("2_3po83")
-region = Rect2(0, 0, 50, 30)
+[ext_resource type="Texture2D" uid="uid://dowmgeacrxqrl" path="res://assets/Mini-Klang jump-Sheet.png" id="2_3po83"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hq4t0"]
 atlas = ExtResource("2_3po83")
-region = Rect2(0, 30, 50, 30)
+region = Rect2(0, 0, 50, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_twsrt"]
 atlas = ExtResource("2_3po83")
-region = Rect2(0, 60, 50, 30)
+region = Rect2(0, 30, 50, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7mtg"]
 atlas = ExtResource("2_3po83")
-region = Rect2(0, 90, 50, 30)
+region = Rect2(0, 60, 50, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bdh3x"]
 atlas = ExtResource("2_3po83")
-region = Rect2(0, 120, 50, 30)
+region = Rect2(0, 90, 50, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jggmu"]
 atlas = ExtResource("2_3po83")
-region = Rect2(0, 150, 50, 30)
+region = Rect2(0, 120, 50, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hrcfq"]
+atlas = ExtResource("2_3po83")
+region = Rect2(0, 150, 50, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehebh"]
 atlas = ExtResource("2_3po83")
 region = Rect2(0, 180, 50, 30)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hrcfq"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3po83")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hq4t0")
 }, {
@@ -54,6 +51,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hrcfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehebh")
 }],
 "loop": true,
 "name": &"flying",
@@ -61,18 +61,18 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3po83"]
-radius = 6.0
-height = 34.0
+radius = 4.9999995
+height = 20.0
 
 [node name="Bird" type="CharacterBody2D"]
 script = ExtResource("1_twsrt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(24, -4)
 sprite_frames = SubResource("SpriteFrames_hrcfq")
 animation = &"flying"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 0)
+position = Vector2(15, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_3po83")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dwm6tlu4fci4u"]
+[gd_scene load_steps=22 format=3 uid="uid://dwm6tlu4fci4u"]
 
 [ext_resource type="Texture2D" uid="uid://bcbou25j341cd" path="res://assets/FIX Sunset.png" id="1_x6sq6"]
 [ext_resource type="Texture2D" uid="uid://deb512lqm5br4" path="res://assets/Sun.png" id="2_laan2"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://oiiyhqgj6hux" path="res://assets/Mid_Wave.png" id="4_e7w18"]
 [ext_resource type="Texture2D" uid="uid://b2mhjut2ii0k4" path="res://assets/Light_Wave.png" id="5_14fn0"]
 [ext_resource type="PackedScene" uid="uid://d2ort7tfi33lg" path="res://scenes/ground.tscn" id="6_u23oc"]
+[ext_resource type="Texture2D" uid="uid://dd0vysslwhd3c" path="res://assets/Menu/CONTROL.png" id="7_e7w18"]
 [ext_resource type="Texture2D" uid="uid://d1hbdbl0doaer" path="res://assets/Klang jump-Sheet.png" id="7_laan2"]
+[ext_resource type="Texture2D" uid="uid://b1iou5gal8lhl" path="res://assets/Menu/OPTIONS.png" id="9_14fn0"]
 
 [sub_resource type="GDScript" id="GDScript_40sux"]
 script/source = "extends Control
@@ -52,6 +54,15 @@ func _unhandled_input(event):
 			
 			waiting_for_input = \"\"
 "
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u23oc"]
+texture = ExtResource("7_e7w18")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8u718"]
+texture = ExtResource("7_e7w18")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oc10e"]
+texture = ExtResource("7_e7w18")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ln24"]
 atlas = ExtResource("7_laan2")
@@ -119,6 +130,8 @@ offset_top = 278.0
 offset_right = -98.44806
 offset_bottom = -57.33603
 script = SubResource("GDScript_40sux")
+metadata/_edit_vertical_guides_ = [160.0]
+metadata/_edit_horizontal_guides_ = [90.0]
 
 [node name="FixSunset" type="Sprite2D" parent="."]
 position = Vector2(-226, -188)
@@ -129,15 +142,15 @@ position = Vector2(-211, -214)
 texture = ExtResource("2_laan2")
 
 [node name="DarkWave" type="Sprite2D" parent="."]
-position = Vector2(94, -203)
+position = Vector2(-216, -184)
 texture = ExtResource("3_6uflr")
 
 [node name="MidWave" type="Sprite2D" parent="."]
-position = Vector2(94, -188)
+position = Vector2(-216, -169)
 texture = ExtResource("4_e7w18")
 
 [node name="LightWave" type="Sprite2D" parent="."]
-position = Vector2(94, -172)
+position = Vector2(-216, -153)
 texture = ExtResource("5_14fn0")
 
 [node name="Ground" parent="." instance=ExtResource("6_u23oc")]
@@ -146,76 +159,74 @@ position = Vector2(-386, -299)
 [node name="VolumeSlider" type="HSlider" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = -307.0
-offset_top = -176.0
-offset_right = -218.0
-offset_bottom = -160.0
+offset_left = -195.0
+offset_top = -191.0
+offset_right = -106.0
+offset_bottom = -175.0
 min_value = -30.0
 max_value = 0.0
 
 [node name="Volume" type="Label" parent="."]
 layout_mode = 0
-offset_left = -304.0
-offset_top = -189.0
-offset_right = -278.0
-offset_bottom = -178.0
+offset_left = -192.0
+offset_top = -215.0
+offset_right = -166.0
+offset_bottom = -204.0
 theme_override_font_sizes/font_size = 7
 text = "Sound"
 
-[node name="OptionLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = -248.0
-offset_top = -254.0
-offset_right = -209.0
-offset_bottom = -240.0
-theme_override_font_sizes/font_size = 10
-text = "Options"
-
-[node name="BackButt" type="Button" parent="."]
-layout_mode = 0
-offset_left = -305.0
-offset_top = -148.0
-offset_right = -269.0
-offset_bottom = -126.0
-theme_override_font_sizes/font_size = 6
-text = "BACK"
-
 [node name="ButtonChange" type="Button" parent="."]
 layout_mode = 0
-offset_left = -306.0
-offset_top = -209.0
-offset_right = -264.0
-offset_bottom = -192.0
+offset_left = -347.0
+offset_top = -198.0
+offset_right = -256.0
+offset_bottom = -168.0
 theme_override_font_sizes/font_size = 6
-text = "Change"
+theme_override_styles/normal = SubResource("StyleBoxTexture_u23oc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8u718")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oc10e")
 
 [node name="LabelDisplay" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.5
 anchor_bottom = 0.287
-offset_left = -254.0
-offset_top = -205.0
-offset_right = -195.0
-offset_bottom = -197.0
+offset_left = -344.0
+offset_top = -165.0
+offset_right = -253.0
+offset_bottom = -157.0
 theme_override_font_sizes/font_size = 5
 
 [node name="ControlLbl" type="Label" parent="."]
 layout_mode = 0
-offset_left = -305.0
-offset_top = -223.0
-offset_right = -226.0
-offset_bottom = -212.0
+offset_left = -346.0
+offset_top = -214.0
+offset_right = -267.0
+offset_bottom = -203.0
 theme_override_font_sizes/font_size = 7
 text = "Change control to FLAP"
 
 [node name="KLANG" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(-150, -229)
+position = Vector2(-130, -229)
 scale = Vector2(0.991, 1)
 sprite_frames = SubResource("SpriteFrames_6uflr")
 animation = &"KLANG"
 
+[node name="BackButt" type="Button" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = -305.0
+offset_top = -149.0
+offset_right = -269.0
+offset_bottom = -127.0
+theme_override_font_sizes/font_size = 6
+text = "BACK"
+
+[node name="Options" type="Sprite2D" parent="."]
+position = Vector2(-226, -250)
+texture = ExtResource("9_14fn0")
+
 [connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_slider_value_changed"]
-[connection signal="pressed" from="BackButt" to="." method="_on_back_butt_pressed"]
 [connection signal="pressed" from="ButtonChange" to="." method="_on_button_change_pressed"]
+[connection signal="pressed" from="BackButt" to="." method="_on_back_butt_pressed"]

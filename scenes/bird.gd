@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
-const GRAVITY : int = 500
+const GRAVITY : int = 450
 const MAX_VEL : int = 300
-const FLAP_SPEED : int = -150
+const FLAP_SPEED : int = -175
 var flying : bool = false
 var falling : bool = false
-const START_POS = Vector2(18, 56)
+const START_POS = Vector2(18, 80)
 
 #called when the node enters the scene for the fist time 
 func _ready():
